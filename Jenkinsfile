@@ -6,7 +6,7 @@ pipeline {
                 echo 'Starting to build docker image'
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
-                    def customImage = docker.build("trolleye/kali-linux:${env.BUILD_ID}")
+                    def customImage = docker.build("trolleye/kali-linux:latest")
                     customImage.push()
                     }
                 }
