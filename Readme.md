@@ -6,4 +6,4 @@
 
 #### Run Kali Linux container with 4444 open for a reverse shell and delete when done
 
-`docker run --rm -p 4444:4444 -it trolleye/kali-luinux:latest`
+`docker run --rm -p 4444:4444 -it trolleye/kali-linux:latest`
