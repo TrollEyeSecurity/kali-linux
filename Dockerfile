@@ -10,4 +10,4 @@ RUN apt update && \
     apt update && \
     apt install google-chrome-stable -y && \
     git clone -q https://github.com/SecureAuthCorp/impacket.git && \
-    python3 -m pip install impacket
+    python3 -m pip install impacket/
