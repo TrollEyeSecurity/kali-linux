@@ -6,7 +6,7 @@ RUN apt update && \
     apt autoremove -y && \
     apt install gnupg2 curl nfs-common mariadb-client exploitdb nmap dnsutils snmp snmpcheck metasploit-framework \
     cisco-auditing-tool cisco-torch sqlninja sqlmap nikto john hydra wordlists dirb vim nano ncat responder \
-    iproute2 python3-pip crackmapexec firebird3.0-utils -y && \
+    iproute2 python3-pip crackmapexec firebird3.0-utils openvas-nasl -y && \
     apt-key add linux_signing_key.pub && \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list && \
     apt update && \
