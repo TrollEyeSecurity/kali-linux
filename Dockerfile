@@ -12,5 +12,8 @@ RUN apt update && \
     apt update && \
     apt install google-chrome-stable -y && \
     git clone -q https://github.com/SecureAuthCorp/impacket.git && \
-    python3 -m pip install impacket netifaces bloodhound mitm6 / && \
+    python3 -m pip install impacket / && \
+    python3 -m pip install netifaces && \
+    python3 -m pip install bloodhound && \
+    python3 -m pip install mitm6 && \
     gem install evil-winrm
