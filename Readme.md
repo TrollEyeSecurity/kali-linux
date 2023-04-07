@@ -7,7 +7,7 @@
 
 #### Or pull from dockerhub
 
-`docker pull trolleye/kube-kali:latest`
+`docker pull trolleye/kali-linux:latest`
 
 
 #### Run Kali Linux container with 4444 open for a reverse shell and delete when done
