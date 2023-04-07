@@ -3,8 +3,6 @@ orbs:
 version: 2.1
 executors:
   docker-publisher:
-    environment:
-      IMAGE_NAME: trolleye/kali-linux
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
       - image: circleci/node:latest
@@ -13,6 +11,8 @@ executors:
             password: $DOCKERHUB_PASSWORD
 jobs:
   build-and-push-image:
+    environment:
+      IMAGE_NAME: trolleye/kali-linux
     docker:
       - image: 'cimg/base:2023.04'
     steps:
@@ -24,8 +24,7 @@ jobs:
           name: Publish Docker Image to Docker Hub
           command: |
               echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-              echo "$IMAGE_NAME:latest"
-              docker build -f Dockerfile --tag "$IMAGE_NAME:latest"
+              docker build -f Dockerfile --tag $IMAGE_NAME:latest .
               docker push $IMAGE_NAME:latest
 workflows:
   version: 2
