@@ -7,7 +7,7 @@ RUN apt update && \
     apt install rsh-client gnupg2 curl nfs-common mariadb-client exploitdb nmap dnsutils snmp snmpcheck metasploit-framework \
     cisco-auditing-tool cisco-torch sqlninja sqlmap nikto john hydra wordlists dirb vim nano ncat responder \
     iproute2 python3-pip crackmapexec firebird3.0-utils gobuster wpscan -y && \
-    gpg --dearmor linux_signing_key.pub -o /etc/apt/keyrings/google.gpg && \
+    gpg --dearmor linux_signing_key.pub && \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list && \
     apt update && \
     apt install google-chrome-stable -y && \
