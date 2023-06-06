@@ -7,7 +7,7 @@ RUN apt update && \
     cisco-auditing-tool cisco-torch sqlninja sqlmap nikto john hydra wordlists dirb vim nano ncat responder \
     iproute2 python3-pip crackmapexec firebird3.0-utils gobuster wpscan -y && \
     wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/google-chrome && \
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable  main" | tee /etc/apt/sources.list.d/google-chrome.list && \
+    echo "deb [arch=$(dpkg --print-architecture)] https://dl.google.com/linux/chrome/deb/ stable  main" | tee /etc/apt/sources.list.d/google-chrome.list && \
     apt update && \
     apt install google-chrome-stable -y && \
     git clone -q https://github.com/SecureAuthCorp/impacket.git && \
