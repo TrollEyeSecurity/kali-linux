@@ -11,5 +11,5 @@ RUN apt update && \
     apt update && \
     apt install google-chrome-stable -y && \
     git clone -q https://github.com/SecureAuthCorp/impacket.git && \
-    python3 -m pip netifaces mitm6 && \
+    python3 -m pip install netifaces mitm6 && \
     gem install evil-winrm
