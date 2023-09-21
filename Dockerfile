@@ -5,11 +5,11 @@ RUN apt update && \
     apt autoremove -y && \
     apt install rsh-client gnupg2 curl nfs-common mariadb-client exploitdb nmap dnsutils snmp snmpcheck metasploit-framework \
     cisco-auditing-tool cisco-torch sqlninja sqlmap nikto john hydra wordlists dirb vim nano ncat responder \
-    iproute2 python3-pip crackmapexec firebird3.0-utils gobuster wpscan -y && \
+    iproute2 python3-pip crackmapexec firebird3.0-utils gobuster wpscan python3-impacket impacket-scripts bloodhound -y && \
     wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && \
     echo "deb [arch=$(dpkg --print-architecture)] https://dl.google.com/linux/chrome/deb/ stable  main" | tee /etc/apt/sources.list.d/google-chrome.list && \
     apt update && \
     apt install google-chrome-stable -y && \
     git clone -q https://github.com/SecureAuthCorp/impacket.git && \
-    python3 -m pip install impacket netifaces bloodhound mitm6 && \
+    python3 -m pip netifaces mitm6 && \
     gem install evil-winrm
