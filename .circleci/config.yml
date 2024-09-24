@@ -26,7 +26,7 @@ jobs:
       IMAGE_NAME: trolleye/kali-linux
     steps:
       - checkout
-      - setup_remote_docker
+      #- setup_remote
       - run:
           command: echo "Starting to build docker image"
       - run:
