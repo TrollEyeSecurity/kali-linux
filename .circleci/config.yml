@@ -23,7 +23,6 @@ jobs:
       IMAGE_NAME: trolleye/kali-linux
     docker:
       - image: 'cimg/base:2023.04'
-    executor: my-executor
     steps:
       - checkout
       - setup_remote_docker
