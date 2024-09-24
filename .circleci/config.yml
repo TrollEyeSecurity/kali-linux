@@ -1,6 +1,14 @@
-orbs:
-  docker: circleci/docker@2.7.1
 version: 2.1
+commands:
+  setup:
+    steps:
+      - checkout
+      - run:
+          name: Create builder
+          command: |
+            export DOCKER_CLI_EXPERIMENTAL=enabled
+            docker context create multi-arch-build
+            docker buildx create --use multi-arch-build
 executors:
   docker-publisher:
     docker: # Each job requires specifying an executor
@@ -15,6 +23,7 @@ jobs:
       IMAGE_NAME: trolleye/kali-linux
     docker:
       - image: 'cimg/base:2023.04'
+    executor: my-executor
     steps:
       - checkout
       - setup_remote_docker
@@ -23,8 +32,8 @@ jobs:
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
-              echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker buildx build --push --platform linux/arm64/v8,linux/amd64 -f Dockerfile --tag $IMAGE_NAME:latest .
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker buildx build --push --platform linux/arm64/v8,linux/amd64 -f Dockerfile --tag $IMAGE_NAME:latest .
 workflows:
   version: 2
   build-and-test:
