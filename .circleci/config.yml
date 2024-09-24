@@ -1,14 +1,4 @@
 version: 2.1
-commands:
-  setup:
-    steps:
-      - checkout
-      - run:
-          name: Create builder
-          command: |
-            export DOCKER_CLI_EXPERIMENTAL=enabled
-            docker context create multi-arch-build
-            docker buildx create --use multi-arch-build
 executors:
   docker-publisher:
     docker: # Each job requires specifying an executor
@@ -22,7 +12,7 @@ jobs:
     environment:
       IMAGE_NAME: trolleye/kali-linux
     docker:
-      - image: 'cimg/base:2023.04'
+      - image: 'cimg/base:latest'
     steps:
       - checkout
       - setup_remote_docker
