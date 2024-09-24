@@ -1,5 +1,5 @@
 orbs:
-  docker: circleci/docker@1.5.0
+  docker: circleci/docker@2.7.1
 version: 2.1
 executors:
   docker-publisher:
