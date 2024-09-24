@@ -11,8 +11,8 @@ jobs:
   build-and-push-image:
     environment:
       IMAGE_NAME: trolleye/kali-linux
-    docker:
-      - image: 'cimg/base:2024.09'
+    machine:
+      - image: 'ubuntu-2404:current'
     steps:
       - checkout
       - setup_remote_docker
