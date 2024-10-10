@@ -32,5 +32,5 @@ jobs:
           name: Publish Docker Image to Docker Hub
           command: |
             echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-            docker buildx build --push --platform linux/arm64/v8,linux/amd64 -f Dockerfile --tag $IMAGE_NAME:latest .
+            docker buildx build --push --platform linux/amd64 -f Dockerfile --tag $IMAGE_NAME:latest .
             docker image prune -fa
