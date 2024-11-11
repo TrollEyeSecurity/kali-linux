@@ -11,6 +11,6 @@ RUN apt install nmap rsh-redone-client gnupg2 curl nfs-common mariadb-client exp
     snmp snmpcheck metasploit-framework chromium vim nano ncat cisco-auditing-tool cisco-torch -y
 RUN apt install sqlninja sqlmap nikto john hydra wordlists dirb responder iproute2 -y
 RUN apt install mitm6 crackmapexec firebird3.0-utils gobuster wpscan smbmap python3-impacket  \
-    impacket-scripts bloodhound python3-netifaces python3-dev evil-winrm -y \
+    impacket-scripts bloodhound python3-netifaces python3-dev evil-winrm -y
 RUN apt install iputils-ping
 RUN git clone -q https://github.com/SecureAuthCorp/impacket.git
