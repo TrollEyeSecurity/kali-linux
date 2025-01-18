@@ -29,8 +29,11 @@ jobs:
       - run:
           command: echo "Starting to build docker image"
       - run:
-          name: Publish Docker Image to Docker Hub
+          name: Build Docker Image
           command: |
             echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker buildx build --push --platform linux/arm64/v8,linux/amd64 -f Dockerfile --tag $IMAGE_NAME:latest .
+      - run:
+          name: Push Docker Image to Docker Hub
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker image prune -fa
